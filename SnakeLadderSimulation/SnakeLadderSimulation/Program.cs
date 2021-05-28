@@ -11,6 +11,9 @@ namespace SnakeLadderSimulation
         static void Main(string[] args)
         {
             Console.WriteLine( "Welcome to Snake Ladder Sumulation Program");
+            //initialize Point 0
+            SLSinglePlayer SinglerPlayer = new SLSinglePlayer();
+            SinglerPlayer.StartPlaying();
             Console.ReadKey();
         }
     }
