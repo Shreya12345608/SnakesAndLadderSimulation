@@ -9,13 +9,36 @@ namespace SnakeLadderSimulation
     class SLSinglePlayer
     {
         public int StartPoint = 0; //initialize by 0
-        public int RanDice;
+        public int RanDice = 0;
+        public int ComputerChoice;
+        int Option = 0;
         public void StartPlaying()
         {
             Console.WriteLine("Game Started! Good Luck "); //Start Game
             Random Random = new Random(); //Creating Random Object
-            RanDice = Random.Next(1 , 6); // Rndom value in B/w 1 to 6
+            RanDice = Random.Next(1, 6); // Rndom value in B/w 1 to 6
             Console.WriteLine("player Role Dice number is:" + " " + RanDice); // Printing Random Value on b/w 1 to 6
+            ComputerChoice = Random.Next(0, 2);  //Choice to check its snake or ladder
+            Console.WriteLine("Dice value:" + ComputerChoice); // taking input Choice
+            switch (ComputerChoice) //Switch Case 
+            {
+                //For No Play
+                case 0:                            // if ComputerChoice = 0
+                    Console.WriteLine("No Play");
+                    break;
+                case 1:                             // if ComputerChoice = 1
+                    StartPoint += RanDice;            //  StartPoint = StartPoint+RandDice
+                    Console.WriteLine("Got Ladder:" + StartPoint);
+                    break;
+                case 2:                                  // if ComputerChoice = 2
+                    StartPoint -= RanDice;              //  StartPoint = StartPoint-RandDice
+                    Console.WriteLine("Snake Attack:" + StartPoint);
+                    break;
+                default:
+                    Console.WriteLine("Invalid Option");  //If other than 0 to 2
+                    break;
+            }
+
         }
     }
 }
