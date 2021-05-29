@@ -30,11 +30,21 @@ namespace SnakeLadderSimulation
                         Console.WriteLine("No Play");
                         break;
                     case 1:                             // if ComputerChoice = 1
-                        StartPoint += RanDice;            //  StartPoint = StartPoint+RandDice
-                        Console.WriteLine("Got Ladder:" + StartPoint);
+                        StartPoint += RanDice;           //  StartPoint = StartPoint+RandDice
+                        if (StartPoint > 100)           // checking StartPoint> 100
+                        {
+                          
+                            StartPoint -=StartPoint;     //  StartPoint = StartPoint-StartPoint
+                        }
+                        Console.WriteLine("Exact Position :" + StartPoint);
+                       // Console.WriteLine("Got Ladder:" + StartPoint);
                         break;
                     case 2:                                  // if ComputerChoice = 2
                         StartPoint -= RanDice;              //  StartPoint = StartPoint-RandDice
+                        if (StartPoint < 0)                 // 0<0 den it will again start
+                        {
+                            StartPoint = 0;
+                        }
                         Console.WriteLine("Snake Attack:" + StartPoint);
                         Console.WriteLine(StartPoint); // If snake attack StartPoint will be 0 (initial Poistion = 0)
                         break;
@@ -42,10 +52,7 @@ namespace SnakeLadderSimulation
                         Console.WriteLine("Invalid Option");  //If other than 0 to 2
                         break;
                 }
-                if (StartPoint < 0) // 0<0 den it will again start
-                {
-                    StartPoint = 0; 
-                }
+               
             }
 
         }
