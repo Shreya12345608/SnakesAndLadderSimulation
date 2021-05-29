@@ -10,8 +10,8 @@ namespace SnakeLadderSimulation
     {
         public int StartPoint = 0; //initialize by 0
         public int RanDice = 0;
+        public int count;
         public int ComputerChoice;
-        int Option = 0;
         public void StartPlaying()
         {
             Console.WriteLine("Game Started! Good Luck "); //Start Game
@@ -20,6 +20,7 @@ namespace SnakeLadderSimulation
               
                 Random Random = new Random(); //Creating Random Object
                 RanDice = Random.Next(1, 6); // Rndom value in B/w 1 to 6
+                count++; //Count By 1
                 Console.WriteLine("player Role Dice number is:" + " " + RanDice); // Printing Random Value on b/w 1 to 6
                 ComputerChoice = Random.Next(0, 2);  //Choice to check its snake or ladder
                 Console.WriteLine("Dice value:" + ComputerChoice); // taking input Choice
@@ -27,7 +28,7 @@ namespace SnakeLadderSimulation
                 {
                     //For No Play
                     case 0:                            // if ComputerChoice = 0
-                        Console.WriteLine("No Play");
+                        Console.WriteLine("No Moves");
                         break;
                     case 1:                             // if ComputerChoice = 1
                         StartPoint += RanDice;           //  StartPoint = StartPoint+RandDice
@@ -36,8 +37,7 @@ namespace SnakeLadderSimulation
                           
                             StartPoint -=StartPoint;     //  StartPoint = StartPoint-StartPoint
                         }
-                        Console.WriteLine("Exact Position :" + StartPoint);
-                       // Console.WriteLine("Got Ladder:" + StartPoint);
+                        Console.WriteLine("Position of the Player:" + StartPoint);
                         break;
                     case 2:                                  // if ComputerChoice = 2
                         StartPoint -= RanDice;              //  StartPoint = StartPoint-RandDice
@@ -52,7 +52,8 @@ namespace SnakeLadderSimulation
                         Console.WriteLine("Invalid Option");  //If other than 0 to 2
                         break;
                 }
-               
+                Console.WriteLine("Dice Role to Win the Game is " + count); // Dice Role to Win the Game is will ( count)
+
             }
 
         }
