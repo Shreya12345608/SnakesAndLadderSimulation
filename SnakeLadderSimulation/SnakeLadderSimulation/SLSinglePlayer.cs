@@ -55,7 +55,7 @@ namespace SnakeLadderSimulation
                         if (StartPoint > 100)           // checking StartPoint> 100
                         {
                           
-                            StartPoint -=StartPoint;     //  StartPoint = StartPoint-StartPoint
+                            StartPoint -=RanDice;     //  StartPoint = StartPoint-RanDice
                        }
                         Console.WriteLine("Position of the Player:" + StartPoint);
                         break;
