@@ -9,42 +9,62 @@ namespace SnakeLadderSimulation
     class SLSinglePlayer
     {
         public int StartPoint = 0; //initialize by 0
+        int StartPoint1 = 0;  //initialize by 0
         public int RanDice = 0;
         public int count;
-        public int ComputerChoice;
+        public int randomeNumber;
+        public string play;
+     
+        public int No_Play = 0; 
+        public int Ladder = 1;
+        public int Snake = 2;
         public void StartPlaying()
         {
             Console.WriteLine("Game Started! Good Luck "); //Start Game
-            while (StartPoint != 100)  // Start Poinnt ! =100
+           while (StartPoint != 100)  // Start Poinnt ! =100
             {
               
                 Random Random = new Random(); //Creating Random Object
-                RanDice = Random.Next(1, 6); // Rndom value in B/w 1 to 6
-                count++; //Count By 1
+                RanDice = Random.Next(1, 7); // Rndom value in B/w 1 to 6
                 Console.WriteLine("player Role Dice number is:" + " " + RanDice); // Printing Random Value on b/w 1 to 6
-                ComputerChoice = Random.Next(0, 2);  //Choice to check its snake or ladder
-                Console.WriteLine("Dice value:" + ComputerChoice); // taking input Choice
-                switch (ComputerChoice) //Switch Case 
+                randomeNumber = Random.Next(0, 3);  //Choice to check its snake or ladder
+
+            if(randomeNumber == 0)
+            {
+                play = "No_Play";
+            }
+            else if(randomeNumber == 1)
+            {
+                play = "Ladder";
+            }
+            else if (randomeNumber == 2)
+            {
+                play = "Snake";
+            }
+            Console.WriteLine("Dice value:" + play); // taking input Choice
+                switch (play) //Switch Case 
                 {
                     //For No Play
-                    case 0:                            // if ComputerChoice = 0
+                    case "No_Play":                            // if ComputerChoice = 0
                         Console.WriteLine("No Moves");
+                        count++;
                         break;
-                    case 1:                             // if ComputerChoice = 1
+                    case "Ladder":                             // if ComputerChoice = 1
                         StartPoint += RanDice;           //  StartPoint = StartPoint+RandDice
+                        count++;
                         if (StartPoint > 100)           // checking StartPoint> 100
                         {
                           
                             StartPoint -=StartPoint;     //  StartPoint = StartPoint-StartPoint
-                        }
+                       }
                         Console.WriteLine("Position of the Player:" + StartPoint);
                         break;
-                    case 2:                                  // if ComputerChoice = 2
+                    case "Snake":                                  // if ComputerChoice = 2
                         StartPoint -= RanDice;              //  StartPoint = StartPoint-RandDice
-                        if (StartPoint < 0)                 // 0<0 den it will again start
-                        {
-                            StartPoint = 0;
-                        }
+                       if (StartPoint < 0)                 // 0<0 den it will again start
+                     {
+                          StartPoint = 0;
+                       }
                         Console.WriteLine("Snake Attack:" + StartPoint);
                         Console.WriteLine(StartPoint); // If snake attack StartPoint will be 0 (initial Poistion = 0)
                         break;
