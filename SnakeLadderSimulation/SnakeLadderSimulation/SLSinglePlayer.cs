@@ -14,7 +14,7 @@ namespace SnakeLadderSimulation
         {
             Console.WriteLine("Game Started! Good Luck "); //Start Game
             Random Random = new Random(); //Creating Random Object
-            RanDice = Random.Next(1 , 6); // Rndom value in B/w 1 to 6
+            RanDice = Random.Next(1 , 7); // Rndom value in B/w 1 to 6
             Console.WriteLine("player Role Dice number is:" + " " + RanDice); // Printing Random Value on b/w 1 to 6
         }
     }
