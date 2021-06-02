@@ -16,9 +16,9 @@ namespace SnakeLadderSimulation
         {
             Console.WriteLine("Game Started! Good Luck "); //Start Game
             Random Random = new Random(); //Creating Random Object
-            RanDice = Random.Next(1, 6); // Rndom value in B/w 1 to 6
+            RanDice = Random.Next(1, 7); // Rndom value in B/w 1 to 6
             Console.WriteLine("player Role Dice number is:" + " " + RanDice); // Printing Random Value on b/w 1 to 6
-            ComputerChoice = Random.Next(0, 2);  //Choice to check its snake or ladder
+            ComputerChoice = Random.Next(0, 3);  //Choice to check its snake or ladder
             Console.WriteLine("Dice value:" + ComputerChoice); // taking input Choice
             switch (ComputerChoice) //Switch Case 
             {
